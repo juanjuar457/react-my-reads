@@ -70,3 +70,16 @@ Books have the same state on both the search page and the main application page:
 Is JSX formatted properly?
 
 All JSX code is formatted properly and functional.
+
+
+
+11/13 - notes - make bookshelfs a comp?? 
+ISSUES>>>>>>>>>>>>>>>>>>>
+I. Format of the books is not right 
+III. xml tage in the book-cover showing as an error!? 
+II. GOOD === Loading in the books from the API 
+-make a state for each of the bookshelves then use setState in order to be able to set the bookshelf type for a certain book, make the options changeable as event handlers?? 
+>>for bookshelf the books have a shelf prop on them, use that to set the state of the book when the user chooses a different shelf! 
+>>have to load each of the shelves themselves ALSO as JSX into the UI using return
+SOL - approach rendered the bookshelves as their own component instead of mapping over it individually - just saved as a stateless functional component. 
+
