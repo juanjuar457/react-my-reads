@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route } from 'react-router-dom';
+import { Switch } from 'react-router';
 import './index.css';
-import './App.css'
-import * as BooksAPI from './BooksAPI'
+import './App.css';
+import * as BooksAPI from './BooksAPI';
 import BookList from "./BookList";
 import SearchPage from "./SearchPage";
 
 class App extends Component {
-
   state = { books: [] };
 
   componentDidMount(){
@@ -28,18 +28,20 @@ class App extends Component {
   render() {
     return (
         <div className="app">
+            <Switch>
             <Route exact path='/' render={() => (
                 <BookList
                  books={this.state.books}
                  onHandleChange={ this.handleChange }
                 />
             )}/>
-            <Route path="/search" render={({ history }) => (
+            <Route path="/search" render={() => (
                 <SearchPage
                 books={this.state.books}
                 onHandleChange={ this.handleChange }
                 />
             )}/>
+            </Switch>
         </div>
     )
   }

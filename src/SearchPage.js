@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import * as BooksAPI from './BooksAPI'
 
-
-
 class SearchPage extends Component {
-    static propTypes = {
-        books: PropTypes.array,
-        onChange: PropTypes.func.isRequired
-    };
-
     state = {
         query: '',
         results: []
     };
+
+    static propTypes = {
+        books: PropTypes.array,
+        onHandleChange: PropTypes.func.isRequired
+    };
+
     updateQuery = (query) => {
         this.setState({
             query: query
@@ -24,8 +23,8 @@ class SearchPage extends Component {
                     if(!results || results.error){
                         this.setState({results: []})
                     } else {
-                        this.bookShelf(results)
-                        this.setState({results: results})
+                        this.bookShelf(results);
+                        this.setState({results})
                     }
                 }
             )} else {
@@ -46,8 +45,6 @@ class SearchPage extends Component {
     };
 
     render(){
-        const { onHandleChange} = this.props
-        const { results } = this.state
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -62,14 +59,14 @@ class SearchPage extends Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {results.map((book)=>(
+                        {this.state.results.map((book)=>(
                             <li key={book.id}>
                                 <div className="book">
                                     <div className="book-top">
                                         <div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url(${book.imageLinks? book.imageLinks.thumbnail : 'http://via.placeholder.com/128x193?text=No%20Cover'})` }}></div>
                                         <div className="book-shelf-changer">
                                             <select value={book.shelf}
-                                                    onChange={(e) => onHandleChange(book,e.target.value)}>
+                                                    onChange={(event) => this.props.onHandleChange(book,event.target.value)}>
                                                 <option value="" disabled>Move to...</option>
                                                 <option value="currentlyReading">Currently Reading</option>
                                                 <option value="wantToRead">Want to Read</option>
@@ -99,3 +96,7 @@ class SearchPage extends Component {
 }
 
 export default SearchPage
+
+// const { onHandleChange} = this.props;
+// const { results } = this.state;
+// console.log("what the heck was this called again",results, onHandleChange);

@@ -75,7 +75,7 @@ All JSX code is formatted properly and functional.
 
 11/13 - notes - make bookshelfs a comp?? 
 ISSUES>>>>>>>>>>>>>>>>>>>
-I. Format of the books is not right 
+I. Format of the books is not right - had to use the props on the object you're bringning in b'c it has the shelfs as a props in it, use that instead of manually writing, anything, if you're manually writing stuff, its WRONG! - or at least double check to make sure Why you're manually typing in things! 
 III. xml tage in the book-cover showing as an error!? 
 II. GOOD === Loading in the books from the API 
 -make a state for each of the bookshelves then use setState in order to be able to set the bookshelf type for a certain book, make the options changeable as event handlers?? 
@@ -87,4 +87,6 @@ Look up how search page syntax is working, find out how its all doing its magic 
 
 
 
-11/14 - check code, reqs and ask, ask ask, turn in friday
+11/14 - check code, reqs and ask, ask ask, turn in friday move onto redux 
+
+11/15 - seems to be good, need to double check to make sure I understand everything going on in there. 

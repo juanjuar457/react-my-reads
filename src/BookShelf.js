@@ -16,9 +16,9 @@ function BookShelf (props) {
                                         backgroundImage: `url(${book.imageLinks.smallThumbnail})`
                                     }}></div>
                                     <div className="book-shelf-changer">
-                                        <select value={book.shelf}>
-                                            onChange{(event) => props.onHandleChange(book, event.target.value)}>
-                                            <option value="none" disabled>Move to...</option>
+                                        <select value={book.shelf}
+                                                onChange={(event) => props.onHandleChange(book,event.target.value)}>
+                                            <option value="" disabled>Move to...</option>
                                             <option value="currentlyReading">Currently Reading</option>
                                             <option value="wantToRead">Want to Read</option>
                                             <option value="read">Read</option>
@@ -27,7 +27,6 @@ function BookShelf (props) {
                                     </div>
                                 </div>
                                 <div className="book-title">{book.title}</div>
-                                {/*<div className="book-authors">{book.authors}</div>*/}
                                 <div className="book-authors">{book.authors.map((author) => {
                                     return (
                                         <div key={author} className="author">{author}</div>
