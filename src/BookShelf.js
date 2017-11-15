@@ -17,7 +17,7 @@ function BookShelf (props) {
                                     }}></div>
                                     <div className="book-shelf-changer">
                                         <select value={book.shelf}>
-                                            onChange{(e) => props.onHandleChange(book, e.target.value)}>
+                                            onChange{(event) => props.onHandleChange(book, event.target.value)}>
                                             <option value="none" disabled>Move to...</option>
                                             <option value="currentlyReading">Currently Reading</option>
                                             <option value="wantToRead">Want to Read</option>
@@ -27,6 +27,7 @@ function BookShelf (props) {
                                     </div>
                                 </div>
                                 <div className="book-title">{book.title}</div>
+                                {/*<div className="book-authors">{book.authors}</div>*/}
                                 <div className="book-authors">{book.authors.map((author) => {
                                     return (
                                         <div key={author} className="author">{author}</div>
@@ -40,37 +41,5 @@ function BookShelf (props) {
         </div>
     )
 }
-//TODO: render the books correctly, use old code from v1
-//TODO: put the search book page comp in as a child comp in the app.js - make that the fork
-
-
-            //>>>>>>>>>>>>>>>>>>>>>>>>BEGIN HARD CODED HTML OF MOCK UP<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-            // <div className="app">
-            //     {this.state.showSearchPage ? (
-            //         <div className="search-books">
-            //             <div className="search-books-bar">
-            //                 <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
-            //                 <div className="search-books-input-wrapper">
-            //                     {/*
-            //       NOTES: The search from BooksAPI is limited to a particular set of search terms.
-            //       You can find these search terms here:
-            //       https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-            //
-            //       However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-            //       you don't find a specific author or title. Every search is limited by search terms.
-            //     */}
-            //                     <input type="text" placeholder="Search by title or author"/>
-            //
-            //                 </div>
-            //             </div>
-            //             <div className="search-books-results">
-            //                 <ol className="books-grid"></ol>
-            //             </div>
-            //         </div>
-            //     ) :
-            //         //START BOOKS LIST HARD CODED HTML >>>>>>>>>>>>>>>>>>>>>>>
-            //         (
 
 export default BookShelf

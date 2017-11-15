@@ -82,4 +82,9 @@ II. GOOD === Loading in the books from the API
 >>for bookshelf the books have a shelf prop on them, use that to set the state of the book when the user chooses a different shelf! 
 >>have to load each of the shelves themselves ALSO as JSX into the UI using return
 SOL - approach rendered the bookshelves as their own component instead of mapping over it individually - just saved as a stateless functional component. 
+>because each book from the books api already has all the props you need on it, thats all you have to worry about, you don't have to manually hard code the names of the shelves or anything, becuase you can load them up from the api and bring them in as props in the jsx for the ui  
+Look up how search page syntax is working, find out how its all doing its magic to function correctly 
 
+
+
+11/14 - check code, reqs and ask, ask ask, turn in friday
