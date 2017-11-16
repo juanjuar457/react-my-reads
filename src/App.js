@@ -4,16 +4,19 @@ import './index.css';
 import './App.css';
 import * as BooksAPI from './BooksAPI';
 import BookList from "./BookList";
-import SearchPage from "./SearchPage";
+import SearchBookPage from "./SearchBookPage";
 
 class App extends Component {
   state = { books: [] };
 
   componentDidMount(){
     BooksAPI.getAll().then((books) => {
-      this.setState({ books })
-    })
+      this.setState({ books });
+        console.log(this.state.books)
+    });
   }
+
+
 //only issue is whole list will not stick after choosing new shelf for a book..
     //The data persists though..
   handleChange = (book, shelf) => {
@@ -35,7 +38,7 @@ class App extends Component {
                 />
             )}/>
             <Route path="/search" render={({history}) => (
-                <SearchPage
+                <SearchBookPage
                 books={this.state.books}
                 onHandleChange={ this.handleChange }
                 />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import * as BooksAPI from './BooksAPI'
 
-class SearchPage extends Component {
+class SearchBookPage extends Component {
     state = {query: '', results: []};
 
     bookShelf = (results) => {
@@ -18,11 +18,9 @@ class SearchPage extends Component {
     };
 
     updateQuery = (query) => {
-        this.setState({
-            query: query
-        });
+        this.setState({query});
         if (query){
-            BooksAPI.search(query.trim(), 50).then((results) => {
+            BooksAPI.search(query.trim(), 20).then((results) => {
                     if(!results || results.error){
                         this.setState({results: []})
                     } else {
@@ -56,7 +54,7 @@ class SearchPage extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {this.state.results.map((book)=>(
-                            <li key={book.id}>
+                            <li key={book.authors}>
                                 <div className="book">
                                     <div className="book-top">
                                         <div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url(${book.imageLinks? book.imageLinks.thumbnail : 'http://via.placeholder.com/128x193?text=No%20Cover'})` }}></div>
@@ -72,11 +70,8 @@ class SearchPage extends Component {
                                         </div>
                                     </div>
                                     <div className="book-title">{book.title}</div>
-                                    <div className="book-authors">{book.authors && book.authors.map((author)=>{
-                                        return(
-                                            <div key={author} className="author">{author}</div>
-                                        )
-                                    })}</div>
+                                    <div className="book-authors">{book.authors} </div>
+                                    {/*not sure why warning is here? for authors?? Unresolved Var???*/}
                                 </div>
                             </li>
                         ))}
@@ -91,5 +86,5 @@ class SearchPage extends Component {
     }
 }
 
-export default SearchPage
+export default SearchBookPage
 
