@@ -1,3 +1,18 @@
+>>>>>>>>>>>>>>>>>>>>STUDENT NOTES<<<<<<<<<<<<<<<<<<<<<<<<
+TO INSTALL:
+
+
+I. DOWNLOAD REPO
+II. Place project in easily accessible location
+II. OPEN that Dir in IN TERMINAL
+III. GO TO MAIN DIR
+    ex: docs\react-my-reads
+    >>>npm install in that dir
+IV.npm start
+V. enjoy
+
+
+
 # MyReads Project
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
@@ -92,3 +107,14 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 # react-my-reads
+
+
+
+
+
+
+
+
+
+
+

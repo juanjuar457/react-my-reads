@@ -4,14 +4,17 @@ import PropTypes from 'prop-types'
 import * as BooksAPI from './BooksAPI'
 
 class SearchPage extends Component {
-    state = {
-        query: '',
-        results: []
-    };
+    state = {query: '', results: []};
 
-    static propTypes = {
-        books: PropTypes.array,
-        onHandleChange: PropTypes.func.isRequired
+    bookShelf = (results) => {
+        for (let result of results){
+            for (let book of this.props.books)
+                if (result.id === book.id) {
+                    result.shelf = book.shelf
+                } else {
+                    result.shelf = 'none'
+                }
+        }
     };
 
     updateQuery = (query) => {
@@ -32,16 +35,9 @@ class SearchPage extends Component {
         }
     };
 
-    bookShelf = (results) => {
-        for (let result of results){
-            for (let book of this.props.books)
-                if (result.id === book.id) {
-                    result.shelf = book.shelf
-                } else {
-                    result.shelf = 'none'
-                }
-        }
-
+    static propTypes = {
+        books: PropTypes.array,
+        onHandleChange: PropTypes.func.isRequired
     };
 
     render(){
@@ -53,8 +49,8 @@ class SearchPage extends Component {
                         <input type="text"
                                placeholder="Search by title or author"
                                value={this.state.query}
-                               onChange={(event) => this.updateQuery(event.target.value)}/>
-
+                               onChange={(event) => this.updateQuery(event.target.value)}
+                        />
                     </div>
                 </div>
                 <div className="search-books-results">
@@ -97,6 +93,3 @@ class SearchPage extends Component {
 
 export default SearchPage
 
-// const { onHandleChange} = this.props;
-// const { results } = this.state;
-// console.log("what the heck was this called again",results, onHandleChange);

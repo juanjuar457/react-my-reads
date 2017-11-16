@@ -1,6 +1,10 @@
 import React from 'react';
 
-function BookShelf (props) {
+//used the starter code to show the outline of the shelf,
+//used template stings and props to show UI, had trouble at first,
+//did not need to hard code anything because the api has all those props
+//in the book object, made it nice.
+const BookShelf = (props) =>  {
     return (
         <div className="bookshelf">
             <h2 className="bookshelf-title">{props.shelf}</h2>
@@ -39,6 +43,6 @@ function BookShelf (props) {
             </div>
         </div>
     )
-}
+};
 
 export default BookShelf

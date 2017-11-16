@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import BookShelf from './BookShelf.js';
 
-function BookList (props) {
+const BookList = (props) => {
     return (
         <div className="list-books">
             <div className="list-books-title">
-                <h1>MyReads</h1> </div>
+                <h1>My Reads</h1> </div>
             <div className="list-books-content">
                 <BookShelf
                     books={props.books.filter(book=>book.shelf==='currentlyReading')}
@@ -29,7 +29,7 @@ function BookList (props) {
             </div>
         </div>
     )
-}
+};
 
 
 export default BookList
