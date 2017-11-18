@@ -19,11 +19,14 @@ class App extends Component {
 
 //only issue is whole list will not stick after choosing new shelf for a book..
     //The data persists though..
+    //11/17 > FIXED!!! problem was the setState func, named books for both args of book,
+    //made the page shown freak out when updating the state when selecting a
+    //shelf for a book, works now!! 
   handleChange = (book, shelf) => {
       BooksAPI.update(book, shelf).then(() => {
           book.shelf = shelf;
           this.setState(previousState => ({
-              books: previousState.books.filter(book => book.id !== book.id).concat([book])
+              books: previousState.books.filter(b => b.id !== book.id).concat([ book ])
           }))
       })
   };
