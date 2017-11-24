@@ -4,18 +4,12 @@ import PropTypes from 'prop-types'
 import * as BooksAPI from './BooksAPI'
 
 class SearchBookPage extends Component {
-    state = {query: '', results: []};
 
-    bookShelf = (results) => {
-        for (let result of results){
-            for (let book of this.props.books)
-                if (result.id === book.id) {
-                    result.shelf = book.shelf
-                } else {
-                    result.shelf = 'none'
-                }
-        }
+    static propTypes = {
+        books: PropTypes.array,
+        onHandleChange: PropTypes.func.isRequired
     };
+    state = {query: '', results: []};
 
     updateQuery = (query) => {
         this.setState({query});
@@ -33,10 +27,17 @@ class SearchBookPage extends Component {
         }
     };
 
-    static propTypes = {
-        books: PropTypes.array,
-        onHandleChange: PropTypes.func.isRequired
+    bookShelf = (results) => {
+        for (let result of results){
+            for (let book of this.props.books)
+                if (result.id === book.id) {
+                    result.shelf = book.shelf
+                } else {
+                    result.shelf = 'none'
+                }
+        }
     };
+
 
     render(){
         return (
@@ -54,7 +55,7 @@ class SearchBookPage extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {this.state.results.map((book)=>(
-                            <li key={book.authors}>
+                            <li key={book.id}>
                                 <div className="book">
                                     <div className="book-top">
                                         <div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url(${book.imageLinks? book.imageLinks.thumbnail : 'http://via.placeholder.com/128x193?text=No%20Cover'})` }}></div>

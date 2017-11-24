@@ -21,7 +21,7 @@ class App extends Component {
     //The data persists though..
     //11/17 > FIXED!!! problem was the setState func, named books for both args of book,
     //made the page shown freak out when updating the state when selecting a
-    //shelf for a book, works now!! 
+    //shelf for a book, works now!!
   handleChange = (book, shelf) => {
       BooksAPI.update(book, shelf).then(() => {
           book.shelf = shelf;
