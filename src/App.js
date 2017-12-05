@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './index.css';
 import './App.css';
 import * as BooksAPI from './BooksAPI';
 import BookList from "./BookList";
 import SearchBookPage from "./SearchBookPage";
-
+// import { Switch } from 'react-router';
 class App extends Component {
   state = { books: [] };
 
@@ -34,6 +34,7 @@ class App extends Component {
   render() {
     return (
         <div className="app">
+            <Switch>
             <Route exact path="/" render={() => (
                 <BookList
                  books={this.state.books}
@@ -46,6 +47,7 @@ class App extends Component {
                 onHandleChange={ this.handleChange }
                 />
             )}/>
+            </Switch>
         </div>
     )
   }
